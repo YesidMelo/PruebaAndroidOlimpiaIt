@@ -8,6 +8,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 class ManejadorGoogleMap(
@@ -59,12 +60,21 @@ class ManejadorGoogleMap(
         }.start()
     }
 
+    private val listaMarcadores = emptyMap<String,Marker>().toMutableMap()
+    private val zoom = 20f
     private fun adicionarMarcadores(){
         for (detalle in listaCoordenadas.entries){
             ejecutarEnHiloPrincipal {
-                Log.e("Error","Coordenadas : ${detalle}");
-                googleMap?.addMarker(MarkerOptions().position(detalle.value).title(detalle.key))
-                googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(detalle.value,15f))
+
+                if(listaMarcadores[detalle.key] != null ){
+                    listaMarcadores[detalle.key]!!.position = detalle.value
+                    googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(detalle.value,zoom))
+                    return@ejecutarEnHiloPrincipal
+                }
+
+                val marcador = googleMap?.addMarker(MarkerOptions().position(detalle.value).title(detalle.key))!!
+                listaMarcadores[detalle.key] = marcador
+                googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(detalle.value,zoom))
             }
         }
 

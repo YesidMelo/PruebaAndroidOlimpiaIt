@@ -67,7 +67,7 @@ class PosicionGeografica @JvmOverloads constructor(
         ManejadorGPS(context)
             .conEscuchadorCoordenadas {
                 manejadorGoogleMap
-                    ?.adicionarCoordenadas(it)
+                    ?.adicionarCoordenadas(it,context.getString(R.string.mi_posicion_actual))
                     ?.actualizarMapa()
             }
             .inicializarVerificacion()
