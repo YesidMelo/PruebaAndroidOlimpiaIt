@@ -64,9 +64,11 @@ class ManejadorGoogleMap(
             ejecutarEnHiloPrincipal {
                 Log.e("Error","Coordenadas : ${detalle}");
                 googleMap?.addMarker(MarkerOptions().position(detalle.value).title(detalle.key))
-                googleMap?.moveCamera(CameraUpdateFactory.newLatLng(detalle.value))
+                googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(detalle.value,15f))
             }
         }
+
+        listaCoordenadas.clear()
     }
 
 
