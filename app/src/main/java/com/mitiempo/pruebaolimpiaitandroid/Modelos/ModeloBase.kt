@@ -1,4 +1,4 @@
-package com.mitiempo.pruebaolimpiaitandroid.Modelos.ProxyVolley
+package com.mitiempo.pruebaolimpiaitandroid.Modelos
 
 import com.mitiempo.pruebaolimpiaitandroid.DataAccess.ProxyVolley.PreferenciasServidor
 

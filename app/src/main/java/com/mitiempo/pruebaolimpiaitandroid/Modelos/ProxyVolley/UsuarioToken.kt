@@ -1,6 +1,8 @@
 package com.mitiempo.pruebaolimpiaitandroid.Modelos.ProxyVolley
 
-class UsuarioToken : ModeloBase{
+import com.mitiempo.pruebaolimpiaitandroid.Modelos.ModeloBase
+
+class UsuarioToken : ModeloBase {
 
     var token: String? = null
     var refreshToken: String? = null

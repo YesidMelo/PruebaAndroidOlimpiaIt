@@ -75,6 +75,11 @@ class BotonGaleria @JvmOverloads constructor(
         return this
     }
 
+    private var appCompatActivity : AppCompatActivity ?= null
+    fun conActivity(appCompatActivity : AppCompatActivity ):BotonGaleria{
+        this.appCompatActivity = appCompatActivity
+        return this
+    }
     fun conOnRequestPermissionsResult(requestCode: Int,permissions: Array<out String>,grantResults: IntArray) :BotonGaleria{
         ManejadorPermisosGaleria
             .getInstancia()
@@ -82,11 +87,7 @@ class BotonGaleria @JvmOverloads constructor(
         return this
     }
 
-    private var appCompatActivity : AppCompatActivity ?= null
-    fun conActivity(appCompatActivity : AppCompatActivity ):BotonGaleria{
-        this.appCompatActivity = appCompatActivity
-        return this
-    }
+
 
     fun escuchaOnActivityResult(requestCode: Int, resultCode: Int, data: Intent?) : BotonGaleria
     {

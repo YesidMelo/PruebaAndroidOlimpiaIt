@@ -1,8 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/contenedor_segunda_pantalla"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/titulo_seleccionar_imagen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/seleccionar_foto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.mitiempo.pruebaolimpiaitandroid.Presentacion.Pantalla2.camara.BotonCamara
+        android:id="@+id/boton_camara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toStartOf="@+id/boton_galeria"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_seleccionar_imagen" />
+
+    <com.mitiempo.pruebaolimpiaitandroid.Presentacion.Pantalla2.Galeria.BotonGaleria
+        android:id="@+id/boton_galeria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/boton_camara"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_seleccionar_imagen" />
+
+    <ImageView
+        android:id="@+id/foto_seleccionada"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/boton_siguiente_imagen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="@dimen/dimen200dp"
+        app:layout_constraintWidth_max="@dimen/dimen200dp"
+        app:layout_constraintHeight_min="@dimen/dimen100dp"
+        app:layout_constraintWidth_min="@dimen/dimen100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton_galeria"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <Button
+        android:id="@+id/boton_siguiente_imagen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

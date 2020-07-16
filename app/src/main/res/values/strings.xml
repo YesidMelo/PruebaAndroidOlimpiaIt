@@ -18,4 +18,5 @@
     <string name="gallery_option">Galeria</string>
     <string name="galeria_deshabilitada">La galeria esta deshabilitada en esta aplicacion</string>
     <string name="camara_deshabilitada">Los permisos de la camara estan deshabilitados ¿Desea habilitarlos?</string>
+    <string name="seleccionar_foto">Seleccionar_foto</string>
 </resources>

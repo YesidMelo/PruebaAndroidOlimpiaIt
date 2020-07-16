@@ -4,4 +4,6 @@
     <dimen name="icono_50dp">50dp</dimen>
     <dimen name="dimen_text_20sp">20sp</dimen>
     <dimen name="dimen_16sp">16sp</dimen>
+    <dimen name="dimen200dp">200dp</dimen>
+    <dimen name="dimen100dp">100dp</dimen>
 </resources>
