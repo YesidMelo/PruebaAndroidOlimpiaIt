@@ -32,4 +32,6 @@
     <string name="surgio_un_error_en_gps">Surgio un error relacionado con el gps, intenta recargar la aplicacion</string>
     <string name="estado_bluetooth">Estado Bluetooth</string>
     <string name="estado_wifi">Estado wifi</string>
+    <string name="Bluetooth">Bluetooth</string>
+    <string name="permisos_bluetooth">No ha habilitado los permisos. ¿Desea Habilitarlos?</string>
 </resources>

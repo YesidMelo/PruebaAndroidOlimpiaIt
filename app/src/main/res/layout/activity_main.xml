@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Presentacion.MainActivity">
 
+    <com.mitiempo.pruebaolimpiaitandroid.Presentacion.Pantalla4.EstadosBluetoothWifi
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.mitiempo.pruebaolimpiaitandroid.Presentacion.Pantalla3.PosicionGeografica
         android:id="@+id/pocision_geografica"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/selector_foto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

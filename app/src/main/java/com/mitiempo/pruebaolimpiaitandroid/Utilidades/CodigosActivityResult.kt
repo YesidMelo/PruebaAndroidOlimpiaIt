@@ -5,6 +5,7 @@ enum class CodigosActivityResult (private val codigo : Int, private val resultad
     GALERIA(1,1),
     CAMARA(2,2),
     GPS(3,3),
+    BLUETOOTH(4,4),
     ;
     fun getCodigoActivity() : Int{
         return codigo
