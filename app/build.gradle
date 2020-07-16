@@ -18,12 +18,13 @@ android {
     buildTypes {
         def Servidor = "Servidor"
         def MostrarToken = "MostrarToken"
+        def nombreApp = "PruebaOlimpiaItAndroid"
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
 
-            resValue "string", "app_name", "PruebaOlimpiaItAndroid"
+            resValue "string", "app_name", nombreApp
 
 
             buildConfigField "String", Servidor, "\"https://escuchap.herokuapp.com\""
@@ -36,7 +37,7 @@ android {
         debug {
             debuggable true
 
-            resValue "string", "app_name", "Nombre_proyecto"
+            resValue "string", "app_name", nombreApp
 
             buildConfigField "String", Servidor, "\"https://escuchap.herokuapp.com\""
             buildConfigField "boolean", MostrarToken, "true"

@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Thread{
+            Thread.sleep(5_000)
+            pocision_geografica.mostrarVista()
+        }.start()
     }
 
     override fun onRequestPermissionsResult(
@@ -23,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         selector_foto.conOnRequestPermissionsResult(requestCode, permissions, grantResults)
+        pocision_geografica.conOnRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

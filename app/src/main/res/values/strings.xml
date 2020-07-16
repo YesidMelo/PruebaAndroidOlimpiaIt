@@ -24,4 +24,6 @@
     <string name="mock_longitud">72.00</string>
     <string name="latitud">Latitud</string>
     <string name="mock_latitud">2.00</string>
+    <string name="GPS">GPS</string>
+    <string name="permisos_gps">Esta aplicacion requiere permisos sobre el gps del celular ¿Desea habilitarlos?</string>
 </resources>
