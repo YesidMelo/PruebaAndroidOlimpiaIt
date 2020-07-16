@@ -7,4 +7,11 @@
     <string name="mock_texto_dialogo">Mock texto almacenamientp</string>
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">cancelar</string>
+    <string name="nombre">Nombre</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="cedula">cedula</string>
+    <string name="direccion">Direccion</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="pais">Pais</string>
+    <string name="celular">Celular</string>
 </resources>
