@@ -2,13 +2,14 @@ package com.mitiempo.pruebaolimpiaitandroid.Presentacion.Pantalla3
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.SupportMapFragment
+import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Dialogos.DialogoGenerico
 import com.mitiempo.pruebaolimpiaitandroid.R
+import com.mitiempo.pruebaolimpiaitandroid.Utilidades.mostrarDialogoDetallado
 
 class PosicionGeografica @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -22,7 +23,6 @@ class PosicionGeografica @JvmOverloads constructor(
         post {
             visibility = View.VISIBLE
             verificarPermisos()
-            inicializarManejadorGoogleMaps()
         }
     }
 
@@ -35,10 +35,17 @@ class PosicionGeografica @JvmOverloads constructor(
 
         manejadorGPS
             ?.conEscuchadorRespuestaNegativaDialogo {
-                Log.e("Error","Tengo deshabilitado los permisos")
+                context.mostrarDialogoDetallado(
+                    R.string.GPS,
+                    R.string.no_habilito_los_permisos_gps,
+                    DialogoGenerico.TipoDialogo.ERROR
+                )
             }
             ?.conEscuchadorRespuestaPositivaDialogo {
-                Log.e("Error","Tengo habilitado los permisos")
+                Thread {
+                    Thread.sleep(5_000)
+                    inicializarManejadorGoogleMaps()
+                }.start()
 
             }
             ?.verificarPermisos()
@@ -52,7 +59,8 @@ class PosicionGeografica @JvmOverloads constructor(
             manejadorGoogleMap = ManejadorGoogleMap(context,mapa!!)
         }
         manejadorGoogleMap
-            ?.ponerCoordenadas()
+            ?.adicionarCoordenadas()
+            ?.actualizarMapa()
     }
 
     fun ocultarVista(){
