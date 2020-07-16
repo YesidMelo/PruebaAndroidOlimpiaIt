@@ -19,4 +19,9 @@
     <string name="galeria_deshabilitada">La galeria esta deshabilitada en esta aplicacion</string>
     <string name="camara_deshabilitada">Los permisos de la camara estan deshabilitados ¿Desea habilitarlos?</string>
     <string name="seleccionar_foto">Seleccionar_foto</string>
+    <string name="mi_pocicion_geografica" >Mi posision geografica</string>
+    <string name="longitud">Longiitud</string>
+    <string name="mock_longitud">72.00</string>
+    <string name="latitud">Latitud</string>
+    <string name="mock_latitud">2.00</string>
 </resources>

@@ -75,5 +75,6 @@ dependencies {
     implementation files('libs/okhttp-urlconnection-2.2.0.jar')
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
 }

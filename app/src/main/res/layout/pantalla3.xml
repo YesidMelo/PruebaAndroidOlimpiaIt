@@ -1,6 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedor_pantalla_3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/titulo_posicion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/mi_pocicion_geografica"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label_longitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/longitud"
+        app:layout_constraintEnd_toStartOf="@id/label_longitud"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_posicion"
+        android:padding="@dimen/dimen5dp"
+        />
+
+    <TextView
+        android:id="@+id/longitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mock_longitud"
+        app:layout_constraintStart_toEndOf="@+id/label_longitud"
+        app:layout_constraintEnd_toStartOf="@id/label_latitud"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_posicion"
+        android:padding="@dimen/dimen5dp"
+        />
+
+    <TextView
+        android:id="@+id/label_latitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/latitud"
+        app:layout_constraintStart_toEndOf="@+id/longitud"
+        app:layout_constraintEnd_toStartOf="@id/latitud"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_posicion"
+        android:padding="@dimen/dimen5dp"
+        />
+
+    <TextView
+        android:id="@+id/latitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mock_latitud"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_posicion"
+        app:layout_constraintStart_toEndOf="@+id/label_latitud"
+        android:padding="@dimen/dimen5dp"
+
+        />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/boton_siguiente_gps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_longitud"
+        app:layout_constraintHeight_min="@dimen/dimen100dp"
+        app:layout_constraintWidth_min="@dimen/dimen100dp"
+        />
+
+    <Button
+        android:id="@+id/boton_siguiente_gps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
