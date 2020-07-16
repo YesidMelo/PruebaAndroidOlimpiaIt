@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.maps.SupportMapFragment
 import com.mitiempo.pruebaolimpiaitandroid.R
 
 class PosicionGeografica @JvmOverloads constructor(
@@ -20,6 +22,7 @@ class PosicionGeografica @JvmOverloads constructor(
         post {
             visibility = View.VISIBLE
             verificarPermisos()
+            inicializarManejadorGoogleMaps()
         }
     }
 
@@ -39,6 +42,17 @@ class PosicionGeografica @JvmOverloads constructor(
 
             }
             ?.verificarPermisos()
+    }
+
+    private var manejadorGoogleMap : ManejadorGoogleMap ?= null
+    private var mapa : SupportMapFragment ?= null
+    private fun inicializarManejadorGoogleMaps(){
+        if(manejadorGoogleMap == null ){
+            mapa = (context as AppCompatActivity).supportFragmentManager.findFragmentById(R.id.mapa) as SupportMapFragment
+            manejadorGoogleMap = ManejadorGoogleMap(context,mapa!!)
+        }
+        manejadorGoogleMap
+            ?.ponerCoordenadas()
     }
 
     fun ocultarVista(){
