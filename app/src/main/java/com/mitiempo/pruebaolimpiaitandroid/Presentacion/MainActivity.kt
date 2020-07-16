@@ -20,6 +20,21 @@ class MainActivity : AppCompatActivity() {
         }.start()
     }
 
+    override fun onStart() {
+        super.onStart()
+        pocision_geografica.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        pocision_geografica.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        pocision_geografica.onPause()
+    }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,

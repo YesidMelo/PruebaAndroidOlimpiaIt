@@ -29,4 +29,5 @@
     <string name="title_activity_maps">Map</string>
     <string name="no_habilito_los_permisos_gps">No habilito los permisos para el uso del GPS. Debes habilitarlos para poder seguir usando la aplicacion</string>
     <string name="mi_posicion_actual">Mi posicion actual</string>
+    <string name="surgio_un_error_en_gps">Surgio un error relacionado con el gps, intenta recargar la aplicacion</string>
 </resources>

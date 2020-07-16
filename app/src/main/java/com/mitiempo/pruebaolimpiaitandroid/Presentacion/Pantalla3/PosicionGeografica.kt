@@ -26,14 +26,14 @@ class PosicionGeografica @JvmOverloads constructor(
         }
     }
 
-    private var manejadorGPS : ManejadorPermisosGPS ?= null
+    private var manejadorPermisosGPS : ManejadorPermisosGPS ?= null
     private fun verificarPermisos(){
 
-        if(manejadorGPS == null ){
-            manejadorGPS = ManejadorPermisosGPS(context)
+        if(manejadorPermisosGPS == null ){
+            manejadorPermisosGPS = ManejadorPermisosGPS(context)
         }
 
-        manejadorGPS
+        manejadorPermisosGPS
             ?.conEscuchadorRespuestaNegativaDialogo {
                 context.mostrarDialogoDetallado(
                     R.string.GPS,
@@ -63,14 +63,31 @@ class PosicionGeografica @JvmOverloads constructor(
             ?.actualizarMapa()
     }
 
+    private var manejadorGPS : ManejadorGPS ?= null
     private fun inicializaLocalizacionGPS(){
-        ManejadorGPS(context)
+        if(manejadorGPS != null ){ return }
+        manejadorGPS = ManejadorGPS(context)
             .conEscuchadorCoordenadas {
                 manejadorGoogleMap
                     ?.adicionarCoordenadas(it,context.getString(R.string.mi_posicion_actual))
                     ?.actualizarMapa()
             }
-            .inicializarVerificacion()
+            .onStart()
+    }
+
+    fun onStart(): PosicionGeografica{
+        manejadorGPS?.onStart()
+        return this
+    }
+
+    fun onResume(): PosicionGeografica{
+        manejadorGPS?.onResume()
+        return this
+    }
+
+    fun onPause(): PosicionGeografica{
+        manejadorGPS?.onPause()
+        return this
     }
 
     fun ocultarVista(){
@@ -80,7 +97,7 @@ class PosicionGeografica @JvmOverloads constructor(
     }
 
     fun conOnRequestPermissionsResult(requestCode: Int,permissions: Array<out String>,grantResults: IntArray) : PosicionGeografica{
-        manejadorGPS
+        manejadorPermisosGPS
             ?.conOnRequestPermissionsResult(requestCode, permissions, grantResults)
         return this
     }
