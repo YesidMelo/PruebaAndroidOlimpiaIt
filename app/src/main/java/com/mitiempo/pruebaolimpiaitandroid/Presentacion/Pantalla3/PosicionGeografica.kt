@@ -42,10 +42,8 @@ class PosicionGeografica @JvmOverloads constructor(
                 )
             }
             ?.conEscuchadorRespuestaPositivaDialogo {
-                Thread {
-                    Thread.sleep(5_000)
-                    inicializarManejadorGoogleMaps()
-                }.start()
+                inicializarManejadorGoogleMaps()
+                inicializaLocalizacionGPS()
 
             }
             ?.verificarPermisos()
@@ -54,13 +52,25 @@ class PosicionGeografica @JvmOverloads constructor(
     private var manejadorGoogleMap : ManejadorGoogleMap ?= null
     private var mapa : SupportMapFragment ?= null
     private fun inicializarManejadorGoogleMaps(){
+
         if(manejadorGoogleMap == null ){
             mapa = (context as AppCompatActivity).supportFragmentManager.findFragmentById(R.id.mapa) as SupportMapFragment
             manejadorGoogleMap = ManejadorGoogleMap(context,mapa!!)
         }
+
         manejadorGoogleMap
             ?.adicionarCoordenadas()
             ?.actualizarMapa()
+    }
+
+    private fun inicializaLocalizacionGPS(){
+        ManejadorGPS(context)
+            .conEscuchadorCoordenadas {
+                manejadorGoogleMap
+                    ?.adicionarCoordenadas(it)
+                    ?.actualizarMapa()
+            }
+            .inicializarVerificacion()
     }
 
     fun ocultarVista(){
