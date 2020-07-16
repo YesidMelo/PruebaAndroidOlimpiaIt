@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimens15dp">15dp</dimen>
+    <dimen name="icono_50dp">50dp</dimen>
+    <dimen name="dimen_text_20sp">20sp</dimen>
+    <dimen name="dimen_16sp">16sp</dimen>
+</resources>

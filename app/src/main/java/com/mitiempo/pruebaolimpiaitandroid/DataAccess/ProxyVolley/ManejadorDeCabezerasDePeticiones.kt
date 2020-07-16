@@ -29,12 +29,12 @@ class ManejadorDeCabezerasDePeticiones {
     }
 
     private fun verificarToken() {
-        PreferenciasUsuario(contexto!!)
+        PreferenciasServidor(contexto!!)
             .conEscuchadorExito { objeto, _ ->
                 if (objeto == null) {
                     return@conEscuchadorExito
                 }
-                val usuario = objeto as User
+                val usuario = objeto as UsuarioToken
 
                 if (usuario.token == null) {
                     return@conEscuchadorExito
@@ -49,7 +49,7 @@ class ManejadorDeCabezerasDePeticiones {
             .conEscuchadorFalla { _, _ ->
                 Log.e("manejador cabezera", "Fallo la carga del token")
             }
-            .traerObjeto(User::class.java, IdentificadorSharedPreferences.Token)
+            .traerObjeto(UsuarioToken::class.java, IdentificadorSharedPreferences.Token)
     }
 
     private fun verificaElMetodoDeEnvio() {

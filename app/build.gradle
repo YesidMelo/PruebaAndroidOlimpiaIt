@@ -23,7 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
 
-            resValue "string", "app_name", "Nombre_proyecto"
+            resValue "string", "app_name", "PruebaOlimpiaItAndroid"
 
 
             buildConfigField "String", Servidor, "\"https://escuchap.herokuapp.com\""
