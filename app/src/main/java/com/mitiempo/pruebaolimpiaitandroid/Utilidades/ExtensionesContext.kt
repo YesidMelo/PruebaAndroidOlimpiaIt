@@ -1,10 +1,15 @@
 package com.mitiempo.pruebaolimpiaitandroid.Utilidades
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.ContextWrapper
+import android.os.Environment
 import androidx.appcompat.app.AppCompatActivity
 import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Dialogos.DialogoGenerico
 import com.mitiempo.pruebaolimpiaitandroid.R
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 private fun esUnContextoValidoParaMostrarMensaje(contex: Context) : Boolean{
@@ -57,4 +62,16 @@ fun Context.mostrarDialogoDetallado(
     }
 
     mostrarDialogoGenerico()
+}
+
+//imagenes
+
+@SuppressLint("SimpleDateFormat")
+fun Context.crearDocumentoImagen() : File{
+    val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+    val imageFileName: String = "JPEG_" + timeStamp + "_"
+    val storageDir: File = getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!
+    if (!storageDir.exists()) storageDir.mkdirs()
+    val imageFile = File.createTempFile(imageFileName, ".jpg", storageDir)
+    return imageFile
 }
