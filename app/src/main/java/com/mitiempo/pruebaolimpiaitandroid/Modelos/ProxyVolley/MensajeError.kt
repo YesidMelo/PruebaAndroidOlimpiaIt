@@ -8,6 +8,6 @@ class MensajeError : ModeloBase {
     var title: String? = null
     @SerializedName("codigo")
     var code: Int? = null
-    @SerializedName("Mensaje")
+    @SerializedName("mensaje")
     var message: String? = null
 }

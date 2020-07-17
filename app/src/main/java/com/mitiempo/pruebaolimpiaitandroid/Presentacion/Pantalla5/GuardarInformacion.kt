@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.LinearLayout
 import com.mitiempo.pruebaolimpiaitandroid.DataAccess.Repositorios.RepoUsuario
 import com.mitiempo.pruebaolimpiaitandroid.Modelos.DetalleUsuario
+import com.mitiempo.pruebaolimpiaitandroid.Modelos.ProxyVolley.MensajeError
 import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Dialogos.DialogoGenerico
 import com.mitiempo.pruebaolimpiaitandroid.R
 import com.mitiempo.pruebaolimpiaitandroid.Utilidades.mostrarDialogoDetallado
@@ -45,6 +46,10 @@ class GuardarInformacion @JvmOverloads constructor(
 
         RepoUsuario(context)
             .conEscuchadorExitoObjeto {
+
+                val mensajeError = it as? MensajeError
+
+
                 context.mostrarDialogoDetallado(
                     R.string.guardar,
                     R.string.se_ha_enviado_la_informacion_al_servidor_exitosamente,
