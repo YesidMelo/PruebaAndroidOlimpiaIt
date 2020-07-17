@@ -11,12 +11,23 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val usuario = DetalleUsuario()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        inicializarManejadorNavegacion()
+    }
 
+    private var manejadorNavegacion : ManejadorNavegacion ?= null
+    private fun inicializarManejadorNavegacion(){
+        if(manejadorNavegacion != null ){ return }
+        manejadorNavegacion = ManejadorNavegacion(this)
+            .conFormularioRegistro(formulario_registro)
+            .conPosicionGeografica(pocision_geografica)
+            .conSeleccionarFoto(selector_foto)
+            .conEstadosBluetoothWifi(verificador_estados_bluetooth_wifi)
+            .conGuardarInformacion(guardar_informacion)
     }
 
     override fun onStart() {
