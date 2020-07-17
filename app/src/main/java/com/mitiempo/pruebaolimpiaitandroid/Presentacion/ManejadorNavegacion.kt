@@ -13,7 +13,7 @@ class ManejadorNavegacion(
     private val context: Context
 ) {
 
-    private val usuario = DetalleUsuario()
+    private var usuario = DetalleUsuario()
 
     private var formularioRegistro : FormularioRegistro ?= null
     fun conFormularioRegistro(formularioRegistro: FormularioRegistro) : ManejadorNavegacion{
@@ -117,7 +117,11 @@ class ManejadorNavegacion(
     }
 
     private fun adicionaUsuarioALasVistas(){
-
+        formularioRegistro?.conUsuario(usuario)
+        posicionGeografica?.conUsuario(usuario)
+        seleccionarFoto?.conUsuario(usuario)
+        estadosBluetoothWifi?.conUsuario(usuario)
+        guardar_informacion?.conUsuario(usuario)
     }
 
     private fun adicionaFuncionesAlEnumeradorListaVistas(){
