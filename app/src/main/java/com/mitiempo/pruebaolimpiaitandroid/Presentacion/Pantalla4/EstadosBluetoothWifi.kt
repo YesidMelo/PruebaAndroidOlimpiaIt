@@ -30,7 +30,13 @@ class EstadosBluetoothWifi @JvmOverloads constructor(
 
     init {
         LayoutInflater.from(context).inflate(R.layout.pantalla4,this,true)
+        ponerEscuchadores()
+    }
 
+    private fun ponerEscuchadores() {
+        boton_siguiente_estados_bluetooth.setOnClickListener {
+            escuchadorSiguiente?.invoke()
+        }
     }
 
     fun mostrarVista(){
@@ -77,6 +83,7 @@ class EstadosBluetoothWifi @JvmOverloads constructor(
 
     private fun actualizarColorEstadosBluetooth(estadoBluetooth: ManejadorEstadosBluetooth.EstadosBluetooth) {
         post {
+            usuario?.estadosBluetooth = estadoBluetooth
             color_estado_bluetooth.setColorFilter(context.resources.getColor(estadoBluetooth.traerColor()))
         }
     }
@@ -102,6 +109,7 @@ class EstadosBluetoothWifi @JvmOverloads constructor(
 
     private fun actualizarColorEstadosWifi(estadoWifi: ManejadorEstadosWifi.EstadosWifi) {
         post {
+            usuario?.estadosWifi = estadoWifi
             color_estado_wifi.setColorFilter(context.resources.getColor(estadoWifi.traerColor()))
         }
     }
