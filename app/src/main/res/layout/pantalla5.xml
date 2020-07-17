@@ -141,8 +141,8 @@
 
     <ImageView
         android:id="@+id/foto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_max="@dimen/dimen200dp"
@@ -159,37 +159,37 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/mi_pocicion_geografica"
-        app:layout_constraintEnd_toEndOf="@+id/label_celular"
-        app:layout_constraintStart_toStartOf="@+id/label_celular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/foto" />
 
     <TextView
         android:id="@+id/posicion_geografica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="152dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:text="@string/mi_pocicion_geografica"
-        app:layout_constraintEnd_toEndOf="@+id/celular"
-        app:layout_constraintStart_toStartOf="@+id/celular"
-        app:layout_constraintTop_toBottomOf="@+id/foto" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_posicion_geografica" />
 
     <TextView
         android:id="@+id/label_estado_bluetooth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/estado_bluetooth"
-        app:layout_constraintEnd_toEndOf="@+id/label_posicion_geografica"
-        app:layout_constraintStart_toStartOf="@+id/label_posicion_geografica"
-        app:layout_constraintTop_toBottomOf="@+id/label_posicion_geografica" />
+        app:layout_constraintEnd_toEndOf="@+id/label_celular"
+        app:layout_constraintStart_toStartOf="@+id/label_celular"
+        app:layout_constraintTop_toBottomOf="@+id/posicion_geografica" />
 
     <ImageView
         android:id="@+id/estado_bluetooth"
         android:layout_width="@dimen/dimens15dp"
         android:layout_height="@dimen/dimens15dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/posicion_geografica"
-        app:layout_constraintStart_toStartOf="@+id/posicion_geografica"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/celular"
+        app:layout_constraintStart_toStartOf="@+id/celular"
         app:layout_constraintTop_toBottomOf="@+id/posicion_geografica"
         app:srcCompat="@color/rojo" />
 

@@ -1,5 +1,6 @@
 package com.mitiempo.pruebaolimpiaitandroid.Presentacion.Pantalla5
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
@@ -69,7 +70,30 @@ class GuardarInformacion @JvmOverloads constructor(
     fun mostrarVista(){
         post {
             visibility = View.VISIBLE
+            actualizarVista()
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun actualizarVista(){
+        if (usuario == null ){ return }
+
+        nombre.setText(usuario!!.nombre)
+        cedula.setText(usuario!!.cedula)
+        direccion.setText(usuario!!.direccion)
+        ciudad.setText(usuario!!.ciudad)
+        pais.setText(usuario!!.pais)
+        celular.setText(usuario!!.celular)
+
+        if (usuario!!.fotoBitmap != null ) {
+            foto.setImageBitmap(usuario!!.fotoBitmap)
+        }
+
+        posicion_geografica.setText(" ${context.getString(R.string.longitud)} : ${usuario!!.GPS!!.Longitud} ${context.getString(R.string.latitud)} : ${usuario!!.GPS!!.Latitud} ")
+
+        estado_bluetooth.setColorFilter(context.resources.getColor(usuario!!.estadosBluetooth.traerColor()))
+        estado_wifi.setColorFilter(context.resources.getColor(usuario!!.estadosWifi.traerColor()))
+
     }
 
     fun ocultarVista(){
