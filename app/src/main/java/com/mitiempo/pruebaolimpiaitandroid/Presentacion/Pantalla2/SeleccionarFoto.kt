@@ -41,6 +41,7 @@ class SeleccionarFoto @JvmOverloads constructor(
     private fun ponerEscuchadores(){
         ponerEscuchadorCamara()
         ponerEscuchadorGaleria()
+        ponerEscuchadorBotonSiguiente()
     }
 
     private fun ponerEscuchadorCamara(){
@@ -48,6 +49,7 @@ class SeleccionarFoto @JvmOverloads constructor(
             .conEscuchadorImagenCargada {
                 if (it == null ){ return@conEscuchadorImagenCargada }
                 foto_seleccionada.setImageBitmap(it)
+                usuario?.fotoBitmap = it
             }
     }
 
@@ -55,7 +57,14 @@ class SeleccionarFoto @JvmOverloads constructor(
         boton_galeria
             .conEscuchadorImagenCargada {
                 foto_seleccionada.setImageBitmap(it)
+                usuario?.fotoBitmap = it
             }
+    }
+
+    private fun ponerEscuchadorBotonSiguiente(){
+        boton_siguiente_imagen.setOnClickListener {
+            escuchadorSiguiente?.invoke()
+        }
     }
 
     fun mostrarVista(){

@@ -7,10 +7,13 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 import com.mitiempo.pruebaolimpiaitandroid.Modelos.DetalleUsuario
+import com.mitiempo.pruebaolimpiaitandroid.Modelos.GPS
 import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Dialogos.DialogoGenerico
 import com.mitiempo.pruebaolimpiaitandroid.R
 import com.mitiempo.pruebaolimpiaitandroid.Utilidades.mostrarDialogoDetallado
+import kotlinx.android.synthetic.main.pantalla3.view.*
 
 class PosicionGeografica @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -30,6 +33,14 @@ class PosicionGeografica @JvmOverloads constructor(
 
     init {
         LayoutInflater.from(context).inflate(R.layout.pantalla3,this,true)
+        ponerEscuchadores()
+    }
+
+    private fun ponerEscuchadores() {
+
+        boton_siguiente_gps.setOnClickListener {
+            escuchadorSiguiente?.invoke()
+        }
     }
 
     fun mostrarVista(){
@@ -84,8 +95,19 @@ class PosicionGeografica @JvmOverloads constructor(
                 manejadorGoogleMap
                     ?.adicionarCoordenadas(it,context.getString(R.string.mi_posicion_actual))
                     ?.actualizarMapa()
+                actualizarPocicionUsuario(it)
             }
             .onStart()
+    }
+
+    private fun actualizarPocicionUsuario(posicion: LatLng) {
+        if (visibility != View.VISIBLE){ return }
+
+        val gps = GPS()
+        gps.Latitud = posicion.latitude.toString()
+        gps.Longitud = posicion.longitude.toString()
+        usuario?.GPS = gps
+
     }
 
     fun onStart(): PosicionGeografica{
