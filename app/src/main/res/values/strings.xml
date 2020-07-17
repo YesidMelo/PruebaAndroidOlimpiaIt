@@ -34,4 +34,5 @@
     <string name="estado_wifi">Estado wifi</string>
     <string name="Bluetooth">Bluetooth</string>
     <string name="permisos_bluetooth">No ha habilitado los permisos. ¿Desea Habilitarlos?</string>
+    <string name="este_dispositivo_no_tiene_bluetooth">Este dispositivo no tiene Bluetooth</string>
 </resources>

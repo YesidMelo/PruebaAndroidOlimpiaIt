@@ -14,10 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Thread{
-            Thread.sleep(5_000)
-            pocision_geografica.mostrarVista()
-        }.start()
+        verificador_estados_bluetooth_wifi.mostrarVista()
     }
 
     override fun onStart() {
@@ -33,6 +30,11 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         pocision_geografica.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        verificador_estados_bluetooth_wifi.onDestroy()
     }
 
     override fun onRequestPermissionsResult(

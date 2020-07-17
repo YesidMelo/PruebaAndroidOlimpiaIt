@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_estado_bluetooth"
         app:layout_constraintWidth_min="@dimen/dimen50"
-        app:srcCompat="@android:color/holo_red_dark" />
+        app:srcCompat="@color/rojo" />
 
     <TextView
         android:id="@+id/label_estado_wifi"
@@ -63,6 +63,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_estado_wifi"
-        app:srcCompat="@android:color/holo_red_dark" />
+        app:srcCompat="@color/rojo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
