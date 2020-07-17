@@ -143,11 +143,27 @@ class ManejadorNavegacion(
     }
 
     private fun ponerEscuchadoresAVistas(){
-        formularioRegistro?.conUsuario(usuario)
-        posicionGeografica?.conUsuario(usuario)
-        seleccionarFoto?.conUsuario(usuario)
-        estadosBluetoothWifi?.conUsuario(usuario)
-        guardar_informacion?.conUsuario(usuario)
+
+        formularioRegistro?.conEscuchadorSiguiente{
+            ListaVistas.SELECCIONAR_FOTO.traerMostrarVista()?.invoke()
+        }
+
+        seleccionarFoto?.conEscuchadorSiguiente{
+            ListaVistas.POSICION_GEOGRAFICA.traerMostrarVista()?.invoke()
+        }
+
+        posicionGeografica?.conEscuchadorSiguiente{
+            ListaVistas.ESTADOS_BLUETOOTH_WIFI.traerMostrarVista()?.invoke()
+        }
+
+        estadosBluetoothWifi?.conEscuchadorSiguiente{
+            ListaVistas.GUARDAR_INFORMACION.traerMostrarVista()?.invoke()
+        }
+
+        guardar_informacion?.conEscuchadorSiguiente{
+            ListaVistas.FORMULARIO_REGISTRO.traerMostrarVista()?.invoke()
+        }
+
     }
 
 }
