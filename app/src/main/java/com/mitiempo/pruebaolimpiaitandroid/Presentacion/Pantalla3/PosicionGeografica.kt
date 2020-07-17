@@ -108,6 +108,11 @@ class PosicionGeografica @JvmOverloads constructor(
         gps.Longitud = posicion.longitude.toString()
         usuario?.GPS = gps
 
+        post {
+            latitud.setText(posicion.latitude.toString())
+            longitud.setText(posicion.longitude.toString())
+        }
+
     }
 
     fun onStart(): PosicionGeografica{
