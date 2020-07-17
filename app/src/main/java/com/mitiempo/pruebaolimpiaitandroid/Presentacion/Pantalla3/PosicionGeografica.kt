@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.SupportMapFragment
+import com.mitiempo.pruebaolimpiaitandroid.Modelos.DetalleUsuario
 import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Dialogos.DialogoGenerico
 import com.mitiempo.pruebaolimpiaitandroid.R
 import com.mitiempo.pruebaolimpiaitandroid.Utilidades.mostrarDialogoDetallado
@@ -14,6 +15,12 @@ import com.mitiempo.pruebaolimpiaitandroid.Utilidades.mostrarDialogoDetallado
 class PosicionGeografica @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
+
+    private var usuario : DetalleUsuario?= null
+    fun conUsuario(usuario : DetalleUsuario) : PosicionGeografica {
+        this.usuario = usuario
+        return this
+    }
 
     init {
         LayoutInflater.from(context).inflate(R.layout.pantalla3,this,true)

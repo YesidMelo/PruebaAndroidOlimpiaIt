@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import com.mitiempo.pruebaolimpiaitandroid.Modelos.DetalleUsuario
 import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Dialogos.DialogoGenerico
 import com.mitiempo.pruebaolimpiaitandroid.R
 import com.mitiempo.pruebaolimpiaitandroid.Utilidades.mostrarDialogoDetallado
@@ -14,6 +15,12 @@ class EstadosBluetoothWifi @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr)
 {
+
+    private var usuario : DetalleUsuario?= null
+    fun conUsuario(usuario : DetalleUsuario) : EstadosBluetoothWifi{
+        this.usuario = usuario
+        return this
+    }
 
     init {
         LayoutInflater.from(context).inflate(R.layout.pantalla4,this,true)
