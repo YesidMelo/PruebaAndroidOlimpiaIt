@@ -22,6 +22,12 @@ class PosicionGeografica @JvmOverloads constructor(
         return this
     }
 
+    private var escuchadorSiguiente : (()->Unit) ?= null
+    fun conEscuchadorSiguiente(escuchadorSiguiente : (()->Unit)) : PosicionGeografica{
+        this.escuchadorSiguiente = escuchadorSiguiente
+        return this
+    }
+
     init {
         LayoutInflater.from(context).inflate(R.layout.pantalla3,this,true)
     }

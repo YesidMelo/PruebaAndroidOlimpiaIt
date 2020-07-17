@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             .conSeleccionarFoto(selector_foto)
             .conEstadosBluetoothWifi(verificador_estados_bluetooth_wifi)
             .conGuardarInformacion(guardar_informacion)
+            .inicializarNavegacion()
     }
 
     override fun onStart() {

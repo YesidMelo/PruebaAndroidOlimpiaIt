@@ -110,10 +110,14 @@ class ManejadorNavegacion(
         }
     }
 
-    fun inicializarNavegacion(){
+    fun inicializarNavegacion() : ManejadorNavegacion{
+
         adicionaUsuarioALasVistas()
         adicionaFuncionesAlEnumeradorListaVistas()
+        mostrarPrimeraPantalla()
+        ponerEscuchadoresAVistas()
 
+        return this
     }
 
     private fun adicionaUsuarioALasVistas(){
@@ -132,6 +136,18 @@ class ManejadorNavegacion(
         ListaVistas.ESTADOS_BLUETOOTH_WIFI.conFuncionMostrarVista(::mostrarEstadosBluetoothWifi)
         ListaVistas.GUARDAR_INFORMACION.conFuncionMostrarVista(::mostrarGuardarInformacion)
 
+    }
+
+    private fun mostrarPrimeraPantalla(){
+        ListaVistas.FORMULARIO_REGISTRO.traerMostrarVista()?.invoke()
+    }
+
+    private fun ponerEscuchadoresAVistas(){
+        formularioRegistro?.conUsuario(usuario)
+        posicionGeografica?.conUsuario(usuario)
+        seleccionarFoto?.conUsuario(usuario)
+        estadosBluetoothWifi?.conUsuario(usuario)
+        guardar_informacion?.conUsuario(usuario)
     }
 
 }

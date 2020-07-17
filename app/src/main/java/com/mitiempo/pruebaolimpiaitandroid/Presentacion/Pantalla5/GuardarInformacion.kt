@@ -18,6 +18,12 @@ class GuardarInformacion @JvmOverloads constructor(
         return this
     }
 
+    private var escuchadorSiguiente : (()->Unit) ?= null
+    fun conEscuchadorSiguiente(escuchadorSiguiente : (()->Unit)) : GuardarInformacion{
+        this.escuchadorSiguiente = escuchadorSiguiente
+        return this
+    }
+
     init {
         LayoutInflater.from(context).inflate(R.layout.pantalla5,this,true)
     }

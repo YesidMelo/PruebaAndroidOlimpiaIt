@@ -21,6 +21,12 @@ class SeleccionarFoto @JvmOverloads constructor(
         return this
     }
 
+    private var escuchadorSiguiente : (()->Unit) ?= null
+    fun conEscuchadorSiguiente(escuchadorSiguiente : (()->Unit)) : SeleccionarFoto{
+        this.escuchadorSiguiente = escuchadorSiguiente
+        return this
+    }
+
     init {
         LayoutInflater.from(context).inflate(R.layout.pantalla2,this,true)
         poneActivityValidoEnBotones()
