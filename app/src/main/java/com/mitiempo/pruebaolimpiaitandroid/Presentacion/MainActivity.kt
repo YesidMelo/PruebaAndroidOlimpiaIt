@@ -8,6 +8,7 @@ import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Dialogos.DialogoGenerico
 import com.mitiempo.pruebaolimpiaitandroid.R
 import com.mitiempo.pruebaolimpiaitandroid.Utilidades.mostrarDialogoDetallado
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.pantalla5.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         selector_foto.conOnRequestPermissionsResult(requestCode, permissions, grantResults)
         pocision_geografica.conOnRequestPermissionsResult(requestCode, permissions, grantResults)
+        verificador_estados_bluetooth_wifi.conOnRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -119,7 +119,7 @@ class EstadosBluetoothWifi @JvmOverloads constructor(
         manejadorEstadosWifi?.apagarObservadorEstadosWifi()
     }
 
-    fun conOnRequestPermissionsResultconOnRequestPermissionsResult(requestCode: Int,permissions: Array<out String>,grantResults: IntArray) : EstadosBluetoothWifi{
+    fun conOnRequestPermissionsResult(requestCode: Int,permissions: Array<out String>,grantResults: IntArray) : EstadosBluetoothWifi{
         manejadorPermisosBluetooth?.conOnRequestPermissionsResult(requestCode, permissions, grantResults)
         return this
     }
