@@ -3,6 +3,7 @@ package com.mitiempo.pruebaolimpiaitandroid.Presentacion
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mitiempo.pruebaolimpiaitandroid.Modelos.DetalleUsuario
 import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Dialogos.DialogoGenerico
 import com.mitiempo.pruebaolimpiaitandroid.R
 import com.mitiempo.pruebaolimpiaitandroid.Utilidades.mostrarDialogoDetallado
@@ -10,11 +11,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val usuario = DetalleUsuario()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        verificador_estados_bluetooth_wifi.mostrarVista()
     }
 
     override fun onStart() {
