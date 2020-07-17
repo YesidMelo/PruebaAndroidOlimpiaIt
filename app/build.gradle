@@ -27,7 +27,7 @@ android {
             resValue "string", "app_name", nombreApp
 
 
-            buildConfigField "String", Servidor, "\"https://escuchap.herokuapp.com\""
+            buildConfigField "String", Servidor, "\"http://192.168.0.7:3000/\""
             buildConfigField "boolean", MostrarToken, "false"
         }
 
@@ -37,7 +37,7 @@ android {
 
             resValue "string", "app_name", nombreApp
 
-            buildConfigField "String", Servidor, "\"https://escuchap.herokuapp.com\""
+            buildConfigField "String", Servidor, "\"http://192.168.0.7:3000/\""
             buildConfigField "boolean", MostrarToken, "true"
         }
 

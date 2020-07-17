@@ -1,8 +1,13 @@
 package com.mitiempo.pruebaolimpiaitandroid.Modelos.ProxyVolley
 
-class MensajeError {
+import com.google.gson.annotations.SerializedName
+import com.mitiempo.pruebaolimpiaitandroid.Modelos.ModeloBase
+
+class MensajeError : ModeloBase {
 
     var title: String? = null
+    @SerializedName("codigo")
     var code: Int? = null
+    @SerializedName("Mensaje")
     var message: String? = null
 }

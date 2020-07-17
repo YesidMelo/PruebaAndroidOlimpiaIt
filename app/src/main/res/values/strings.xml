@@ -38,4 +38,5 @@
     <string name="foto">Foto</string>
     <string name="guardar">Guardar</string>
     <string name="resumen">Resumen</string>
+    <string name="se_ha_enviado_la_informacion_al_servidor_exitosamente">Se ha enviado la informacion al servidor exitosamente</string>
 </resources>

@@ -6,8 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import com.mitiempo.pruebaolimpiaitandroid.DataAccess.Repositorios.RepoUsuario
 import com.mitiempo.pruebaolimpiaitandroid.Modelos.DetalleUsuario
+import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Dialogos.DialogoGenerico
 import com.mitiempo.pruebaolimpiaitandroid.R
+import com.mitiempo.pruebaolimpiaitandroid.Utilidades.mostrarDialogoDetallado
 import kotlinx.android.synthetic.main.pantalla5.view.*
 
 class GuardarInformacion @JvmOverloads constructor(
@@ -33,9 +36,29 @@ class GuardarInformacion @JvmOverloads constructor(
 
     private fun ponerEscuchadores() {
         boton_guardar.setOnClickListener {
-            val usuario = this@GuardarInformacion.usuario
-            Log.e("error","");
+            enviarInformacionAlServidor()
         }
+    }
+
+    private fun enviarInformacionAlServidor() {
+        if (usuario == null ){ return }
+
+        RepoUsuario(context)
+            .conEscuchadorExitoObjeto {
+                context.mostrarDialogoDetallado(
+                    R.string.guardar,
+                    R.string.se_ha_enviado_la_informacion_al_servidor_exitosamente,
+                    DialogoGenerico.TipoDialogo.OK
+                )
+            }
+            .conEscuchadorFalla { titulo, mensaje ->
+                context.mostrarDialogoDetallado(
+                    titulo,
+                    mensaje,
+                    DialogoGenerico.TipoDialogo.ERROR
+                )
+            }
+            .enviarUsuario(this.usuario!!)
     }
 
     fun mostrarVista(){

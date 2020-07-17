@@ -9,7 +9,7 @@ enum class Servicios(
     val metodo: Metodo,
     val nombreArchivoLocal: String? = null
 ) : ProxyVolley.VolleyService {
-
+    GUARDAR_USUARIO("GuardarInformacion","",Metodo.POST,null)
     ;
 
     private var esMock = false

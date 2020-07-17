@@ -155,7 +155,7 @@ class ProxyVolley {
     }
 
     private fun generarUrl(): String {
-        return baseURL + "/api/" + servicio!!.getURL() + if (servicio!!.complemento() != null) servicio!!.complemento() else ""
+        return baseURL + "" + servicio!!.getURL() + if (servicio!!.complemento() != null) servicio!!.complemento() else ""
     }
 
     private fun generarStringRequest(url: String): StringRequest {
