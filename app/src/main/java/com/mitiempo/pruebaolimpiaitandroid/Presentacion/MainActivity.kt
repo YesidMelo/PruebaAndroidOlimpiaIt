@@ -52,6 +52,13 @@ class MainActivity : AppCompatActivity() {
         verificador_estados_bluetooth_wifi.onDestroy()
     }
 
+    override fun onBackPressed() {
+        manejadorNavegacion
+            ?.onBackPressed {
+                super.onBackPressed()
+            }
+    }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,

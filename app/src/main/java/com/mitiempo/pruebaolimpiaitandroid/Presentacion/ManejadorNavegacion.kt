@@ -110,6 +110,8 @@ class ManejadorNavegacion(
         }
     }
 
+    private var vistaActual = ListaVistas.FORMULARIO_REGISTRO
+
     fun inicializarNavegacion() : ManejadorNavegacion{
 
         adicionaUsuarioALasVistas()
@@ -146,24 +148,53 @@ class ManejadorNavegacion(
 
         formularioRegistro?.conEscuchadorSiguiente{
             ListaVistas.SELECCIONAR_FOTO.traerMostrarVista()?.invoke()
+            vistaActual = ListaVistas.SELECCIONAR_FOTO
         }
 
         seleccionarFoto?.conEscuchadorSiguiente{
             ListaVistas.POSICION_GEOGRAFICA.traerMostrarVista()?.invoke()
+            vistaActual = ListaVistas.POSICION_GEOGRAFICA
         }
 
         posicionGeografica?.conEscuchadorSiguiente{
             ListaVistas.ESTADOS_BLUETOOTH_WIFI.traerMostrarVista()?.invoke()
+            vistaActual = ListaVistas.ESTADOS_BLUETOOTH_WIFI
         }
 
         estadosBluetoothWifi?.conEscuchadorSiguiente{
             ListaVistas.GUARDAR_INFORMACION.traerMostrarVista()?.invoke()
+            vistaActual = ListaVistas.GUARDAR_INFORMACION
         }
 
         guardar_informacion?.conEscuchadorSiguiente{
             ListaVistas.FORMULARIO_REGISTRO.traerMostrarVista()?.invoke()
+            vistaActual = ListaVistas.FORMULARIO_REGISTRO
         }
 
+    }
+
+    fun onBackPressed(cerrarAplicacion : (()->Unit)? = null ){
+        when(vistaActual){
+            ListaVistas.FORMULARIO_REGISTRO ->{
+                cerrarAplicacion?.invoke()
+            }
+            ListaVistas.SELECCIONAR_FOTO ->{
+                vistaActual = ListaVistas.FORMULARIO_REGISTRO
+                mostrarFormularioRegistro()
+            }
+            ListaVistas.POSICION_GEOGRAFICA->{
+                vistaActual = ListaVistas.SELECCIONAR_FOTO
+                mostrarSeleccionarFoto()
+            }
+            ListaVistas.ESTADOS_BLUETOOTH_WIFI->{
+                vistaActual = ListaVistas.POSICION_GEOGRAFICA
+                mostrarPosicionGeografica()
+            }
+            ListaVistas.GUARDAR_INFORMACION->{
+                vistaActual = ListaVistas.ESTADOS_BLUETOOTH_WIFI
+                mostrarEstadosBluetoothWifi()
+            }
+        }
     }
 
 }
