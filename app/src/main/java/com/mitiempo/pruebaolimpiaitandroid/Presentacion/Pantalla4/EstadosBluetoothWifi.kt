@@ -2,7 +2,6 @@ package com.mitiempo.pruebaolimpiaitandroid.Presentacion.Pantalla4
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
@@ -25,6 +24,7 @@ class EstadosBluetoothWifi @JvmOverloads constructor(
         post {
             inicializarManejadorPermisosBluetooth()
             inicializarManejadorEstadosBluetooth()
+            inicializarManejadorEstadosWifi()
             visibility = View.VISIBLE
         }
     }
@@ -50,7 +50,7 @@ class EstadosBluetoothWifi @JvmOverloads constructor(
         manejadorEstadosBluetooth = ManejadorEstadosBluetooth(context)
             .conEscuchadorEstadosBluetooth {
                 estadoBluetooth ->
-                actualizarColorEstados(estadoBluetooth)
+                actualizarColorEstadosBluetooth(estadoBluetooth)
             }
             .conRespuestaFalla { titulo, mensaje ->
                 context.mostrarDialogoDetallado(
@@ -62,14 +62,40 @@ class EstadosBluetoothWifi @JvmOverloads constructor(
             .encenderObservadorEstados()
     }
 
-    private fun actualizarColorEstados(estadoBluetooth: ManejadorEstadosBluetooth.EstadosBluetooth) {
+    private fun actualizarColorEstadosBluetooth(estadoBluetooth: ManejadorEstadosBluetooth.EstadosBluetooth) {
         post {
             color_estado_bluetooth.setColorFilter(context.resources.getColor(estadoBluetooth.traerColor()))
         }
     }
 
+    private var manejadorEstadosWifi : ManejadorEstadosWifi ?= null
+    private fun inicializarManejadorEstadosWifi(){
+
+        if(manejadorEstadosWifi != null){ return }
+        manejadorEstadosWifi = ManejadorEstadosWifi(context)
+            .conEscuchadorFalla { titulo, mensaje ->
+                context.mostrarDialogoDetallado(
+                    titulo,
+                    mensaje,
+                    DialogoGenerico.TipoDialogo.ERROR
+                )
+            }
+            .conEscuchadorEstadosWifi {
+                estadoWifi ->
+                actualizarColorEstadosWifi(estadoWifi)
+            }
+            .encenderObservadorEstadosWifi()
+    }
+
+    private fun actualizarColorEstadosWifi(estadoWifi: ManejadorEstadosWifi.EstadosWifi) {
+        post {
+            color_estado_wifi.setColorFilter(context.resources.getColor(estadoWifi.traerColor()))
+        }
+    }
+
     fun onDestroy(){
         manejadorEstadosBluetooth?.apagarObservadorEstados()
+        manejadorEstadosWifi?.apagarObservadorEstadosWifi()
     }
 
     fun conOnRequestPermissionsResultconOnRequestPermissionsResult(requestCode: Int,permissions: Array<out String>,grantResults: IntArray) : EstadosBluetoothWifi{
