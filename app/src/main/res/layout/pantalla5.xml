@@ -1,6 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedor_resumen_historial"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/label_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/nombre"
+        app:layout_constraintEnd_toStartOf="@+id/nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_resumen" />
+
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/label_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/label_resumen" />
+
+    <TextView
+        android:id="@+id/label_cedula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/cedula"
+        app:layout_constraintEnd_toEndOf="@+id/label_nombre"
+        app:layout_constraintStart_toStartOf="@+id/label_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/label_nombre" />
+
+    <TextView
+        android:id="@+id/cedula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/cedula"
+        app:layout_constraintEnd_toEndOf="@+id/nombre"
+        app:layout_constraintStart_toStartOf="@+id/nombre"
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+
+    <TextView
+        android:id="@+id/label_direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/direccion"
+        app:layout_constraintEnd_toEndOf="@+id/label_cedula"
+        app:layout_constraintStart_toStartOf="@+id/label_cedula"
+        app:layout_constraintTop_toBottomOf="@+id/label_cedula" />
+
+    <TextView
+        android:id="@+id/direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/direccion"
+        app:layout_constraintEnd_toEndOf="@+id/cedula"
+        app:layout_constraintStart_toStartOf="@+id/cedula"
+        app:layout_constraintTop_toBottomOf="@+id/cedula" />
+
+    <TextView
+        android:id="@+id/label_ciudad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/ciudad"
+        app:layout_constraintEnd_toEndOf="@+id/label_direccion"
+        app:layout_constraintStart_toStartOf="@+id/label_direccion"
+        app:layout_constraintTop_toBottomOf="@+id/label_direccion" />
+
+    <TextView
+        android:id="@+id/ciudad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/ciudad"
+        app:layout_constraintEnd_toEndOf="@+id/direccion"
+        app:layout_constraintStart_toStartOf="@+id/direccion"
+        app:layout_constraintTop_toBottomOf="@+id/direccion" />
+
+    <TextView
+        android:id="@+id/label_pais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/pais"
+        app:layout_constraintEnd_toEndOf="@+id/label_ciudad"
+        app:layout_constraintStart_toStartOf="@+id/label_ciudad"
+        app:layout_constraintTop_toBottomOf="@+id/label_ciudad" />
+
+    <TextView
+        android:id="@+id/pais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/pais"
+        app:layout_constraintEnd_toEndOf="@+id/ciudad"
+        app:layout_constraintStart_toStartOf="@+id/ciudad"
+        app:layout_constraintTop_toBottomOf="@+id/ciudad" />
+
+    <TextView
+        android:id="@+id/label_celular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/celular"
+        app:layout_constraintEnd_toEndOf="@+id/label_pais"
+        app:layout_constraintStart_toStartOf="@+id/label_pais"
+        app:layout_constraintTop_toBottomOf="@+id/label_pais" />
+
+    <TextView
+        android:id="@+id/celular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/celular"
+        app:layout_constraintEnd_toEndOf="@+id/pais"
+        app:layout_constraintStart_toStartOf="@+id/pais"
+        app:layout_constraintTop_toBottomOf="@+id/pais" />
+
+    <TextView
+        android:id="@+id/label_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/foto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_celular" />
+
+    <ImageView
+        android:id="@+id/foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="@dimen/dimen200dp"
+        app:layout_constraintHeight_min="@dimen/dimen100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_foto"
+        app:layout_constraintWidth_max="@dimen/dimen200dp"
+        app:layout_constraintWidth_min="@dimen/dimen100dp"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/label_posicion_geografica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/mi_pocicion_geografica"
+        app:layout_constraintEnd_toEndOf="@+id/label_celular"
+        app:layout_constraintStart_toStartOf="@+id/label_celular"
+        app:layout_constraintTop_toBottomOf="@+id/foto" />
+
+    <TextView
+        android:id="@+id/posicion_geografica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/mi_pocicion_geografica"
+        app:layout_constraintEnd_toEndOf="@+id/celular"
+        app:layout_constraintStart_toStartOf="@+id/celular"
+        app:layout_constraintTop_toBottomOf="@+id/foto" />
+
+    <TextView
+        android:id="@+id/label_estado_bluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/estado_bluetooth"
+        app:layout_constraintEnd_toEndOf="@+id/label_posicion_geografica"
+        app:layout_constraintStart_toStartOf="@+id/label_posicion_geografica"
+        app:layout_constraintTop_toBottomOf="@+id/label_posicion_geografica" />
+
+    <ImageView
+        android:id="@+id/estado_bluetooth"
+        android:layout_width="@dimen/dimens15dp"
+        android:layout_height="@dimen/dimens15dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/posicion_geografica"
+        app:layout_constraintStart_toStartOf="@+id/posicion_geografica"
+        app:layout_constraintTop_toBottomOf="@+id/posicion_geografica"
+        app:srcCompat="@color/rojo" />
+
+    <TextView
+        android:id="@+id/label_estado_wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/estado_wifi"
+        app:layout_constraintEnd_toEndOf="@+id/label_estado_bluetooth"
+        app:layout_constraintStart_toStartOf="@+id/label_estado_bluetooth"
+        app:layout_constraintTop_toBottomOf="@+id/label_estado_bluetooth" />
+
+    <ImageView
+        android:id="@+id/estado_wifi"
+        android:layout_width="@dimen/dimens15dp"
+        android:layout_height="@dimen/dimens15dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/estado_bluetooth"
+        app:layout_constraintStart_toStartOf="@+id/estado_bluetooth"
+        app:layout_constraintTop_toBottomOf="@+id/estado_bluetooth"
+        app:srcCompat="@color/rojo" />
+
+    <Button
+        android:id="@+id/boton_guardar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_estado_wifi" />
+
+    <TextView
+        android:id="@+id/label_resumen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/resumen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
