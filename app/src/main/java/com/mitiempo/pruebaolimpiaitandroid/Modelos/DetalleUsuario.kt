@@ -1,8 +1,11 @@
 package com.mitiempo.pruebaolimpiaitandroid.Modelos
 
+import android.graphics.Bitmap
+import android.util.Base64
 import com.google.gson.annotations.Expose
 import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Pantalla4.ManejadorEstadosBluetooth
 import com.mitiempo.pruebaolimpiaitandroid.Presentacion.Pantalla4.ManejadorEstadosWifi
+import java.io.ByteArrayOutputStream
 
 class DetalleUsuario : ModeloBase {
 
@@ -43,6 +46,15 @@ class DetalleUsuario : ModeloBase {
                 Wifi = "Apagado"
             }
         }
+    }
+
+    @Expose(serialize = false)
+    var fotoBitmap : Bitmap ?= null
+    set(value) {
+        field = value
+        val outputStream = ByteArrayOutputStream();
+        value?.compress(Bitmap.CompressFormat.JPEG,100,outputStream)
+        foto = Base64.encodeToString(outputStream.toByteArray(),Base64.DEFAULT)
     }
 
 }
